@@ -8,7 +8,7 @@
 --   category VARCHAR(30)
 -- );
 
-INSERT INTO images (name, url, category)
+-- INSERT INTO images (name, url, category)
 -- VALUES  
 --('Dog w big ears', 'https://res.cloudinary.com/dx8qsuzoq/image/upload/v1607711915/Inspire/cute_ears_iq4w7n.jpg', 'Animals');,
 --('Gorillas', 'https://res.cloudinary.com/dx8qsuzoq/image/upload/v1607711915/Inspire/gorillas_l1emr2.jpg', 'Animals');,

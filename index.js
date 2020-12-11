@@ -38,11 +38,26 @@ app.get('/images', async(req, res) => {
 //get an image
 app.get('/images/:id', async(req, res) => {
   try {
-    console.log(req.params);
+    const { id } = req.params;
+    const image = await pool.query('SELECT * FROM images WHERE id = $1', [id]);
+    res.json(image.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
 });
+
+//update an image
+app.put('/images/:id', async(req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, url, category } = req.body;
+    const updateImage = await pool.query('UPDATE images SET name = $1, url = $2, category = $3 WHERE id = $4', 
+      [name, url, category, id]);
+    res.json('Image was updated.');
+  } catch (err) {
+    console.error(err.message);
+  }
+})
 
 app.listen(3000, () => {
   console.log(`server has started on port ${port}`)
